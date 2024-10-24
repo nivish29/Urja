@@ -1,7 +1,8 @@
-const express = require('express');
+import express from 'express';
+import sendMessage from './../controllers/simulate.controller.js'; // Make sure this path is correct
+
 const router = express.Router();
-const { sendMessage } = require('./../controllers/simulate.controller');
 
 router.post('/send-message', sendMessage);
 
-module.exports = router;
+export default router;
