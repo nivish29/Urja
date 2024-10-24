@@ -46,9 +46,9 @@ export default function SidebarMain({
           onClick={() => handleItemClick("/feedbackReceived")}
         />
         <SideBarItem
-          text="Employee"
-          active={activePath === "/employee"}
-          onClick={() => handleItemClick("/employee")}
+          text="Customers"
+          active={activePath === "/customer"}
+          onClick={() => handleItemClick("/customer")}
         />
         <SideBarItem
           text="Grant Questions"
