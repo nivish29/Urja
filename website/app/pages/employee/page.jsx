@@ -1,13 +1,13 @@
-"use client"
-import { Delete, Edit, Pencil, Plus, Trash } from "lucide-react"
-import { useState } from "react"
-import AddEmployeeSideBar from "../../components/Sidebars/addEmployeeSidebar"
-import { data } from "../../utils/employee_data"
-import EditEmployeeSideBar from "../../components/Sidebars/editEmployeeSidebar"
+"use client";
+import { Delete, Edit, Pencil, Plus, Trash } from "lucide-react";
+import { useState } from "react";
+import AddEmployeeSideBar from "../../components/Sidebars/addEmployeeSidebar";
+import { data } from "../../util/employee_data";
+import EditEmployeeSideBar from "../../components/Sidebars/editEmployeeSidebar";
 
 const Employee = () => {
-  const [expanded, setExpanded] = useState(false)
-  const [editExpanded, setEditExpanded] = useState(false)
+  const [expanded, setExpanded] = useState(false);
+  const [editExpanded, setEditExpanded] = useState(false);
 
   const columns = [
     "Employment ID",
@@ -18,16 +18,16 @@ const Employee = () => {
     "Gender",
     "",
     "Action",
-  ]
+  ];
 
   const handleExpanded = () => {
-    console.log(expanded)
-    setExpanded((prev) => !prev)
-  }
+    console.log(expanded);
+    setExpanded((prev) => !prev);
+  };
 
   const handleEditExpanded = () => {
-    setEditExpanded((prev) => !prev)
-  }
+    setEditExpanded((prev) => !prev);
+  };
 
   return (
     <div className="max-h-full">
@@ -158,6 +158,6 @@ const Employee = () => {
         <EditEmployeeSideBar />
       </div>
     </div>
-  )
-}
-export default Employee
+  );
+};
+export default Employee;

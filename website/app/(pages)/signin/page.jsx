@@ -1,23 +1,22 @@
-"use client"
-import axiosInstance from "@/app/utils/axios_instance"
-import Image from "next/image"
-import { useRouter } from "next/navigation"
-import { useEffect, useState } from "react"
+"use client";
+import axiosInstance from "@/app/util/axios_instance";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const SignIn = () => {
-  const router = useRouter()
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  // console.log(process.env.BASE_URL);
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     if (localStorage.getItem("accessToken")) {
-      router.replace("/dashboard")
+      router.replace("/dashboard");
     }
-  }, [])
+  }, []);
 
   const handleOnSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     try {
       // const response = await axiosInstance.post(
@@ -30,11 +29,11 @@ const SignIn = () => {
       // )
       // console.log(response)
       // localStorage.setItem("accessToken", response.data.data.accessToken)
-      router.push("/dashboard")
+      router.push("/dashboard");
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
-  }
+  };
 
   return (
     <div className=" h-full flex justify-center items-center ">
@@ -84,6 +83,18 @@ const SignIn = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+
+          {/* New "Not have an account?" text with a link */}
+          <span className="block text-sm text-gray-500 mt-4">
+            Not have an account?{" "}
+            <a
+              href="/signup" // Adjust the href link to your signup page
+              className="text-blue-500 hover:underline"
+            >
+              Create
+            </a>
+          </span>
+
           <button
             type="submit"
             className="bg-[#014E53] w-full text-white px-10 py-2 rounded-lg mt-10 mb-2 hover:scale-95 hover:bg-[#2f6a6c] transition-all duration-300"
@@ -92,8 +103,7 @@ const SignIn = () => {
           </button>
         </form>
       </div>
-      
     </div>
-  )
-}
-export default SignIn
+  );
+};
+export default SignIn;

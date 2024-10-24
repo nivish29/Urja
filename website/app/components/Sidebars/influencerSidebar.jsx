@@ -1,4 +1,4 @@
-import axiosInstance from "@/app/utils/axios_instance";
+import axiosInstance from "@/app/util/axios_instance";
 import { ArrowRightToLine, Pencil } from "lucide-react";
 import { useRef, useState } from "react";
 

@@ -14,14 +14,13 @@ import {
   Shell,
   SquareUser,
   Trash,
-} from "lucide-react"
-import { data } from "../../utils/employee_working_hour"
-import { useRef, useState } from "react"
+} from "lucide-react";
+import { useRef, useState } from "react";
 
 const EditEmployeeSideBar = () => {
-  const [image, setImage] = useState(null)
-  const fileInputRef = useRef(null)
-  const columns = ["Day", "Start Hour", "End Hour", "Total Hour", "Action"]
+  const [image, setImage] = useState(null);
+  const fileInputRef = useRef(null);
+  const columns = ["Day", "Start Hour", "End Hour", "Total Hour", "Action"];
   return (
     <div className=" h-full flex flex-col justify-between">
       <div className="p-5 overflow-y-auto">
@@ -225,6 +224,6 @@ const EditEmployeeSideBar = () => {
         </button>
       </div>
     </div>
-  )
-}
-export default EditEmployeeSideBar
+  );
+};
+export default EditEmployeeSideBar;
