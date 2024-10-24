@@ -1,6 +1,5 @@
 import { FeedbacksReceivedForm } from "../../components/feedbackReceivedForm";
-import { data } from "@/app/util/feedback_data";
-
+import { data } from "@/app/utils/feedback_data";
 
 const FeedBackReceived = () => {
   return (

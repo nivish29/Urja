@@ -1,20 +1,14 @@
 "use client";
 import { Delete, Edit, Pencil, Plus, Trash } from "lucide-react";
 import { useState } from "react";
-import { data } from "../../util/evuser_data.jsx"; // Make sure your data structure contains the new fields
+import { data } from "../../utils/evuser_data.jsx"; // Make sure your data structure contains the new fields
 
 const EVUsers = () => {
   const [expanded, setExpanded] = useState(false);
   const [editExpanded, setEditExpanded] = useState(false);
 
   // Updated columns to reflect the new requirements
-  const columns = [
-    "Name",
-    "Phone No.",
-    "Email ID",
-    "Aadhar Number",
-    "Action",
-  ];
+  const columns = ["Name", "Phone No.", "Email ID", "Aadhar Number", "Action"];
 
   const handleExpanded = () => {
     setExpanded((prev) => !prev);

@@ -1,12 +1,8 @@
 {
-  "/(pages)/swaps/page": "app/(pages)/swaps/page.js",
-  "/(pages)/evuser/page": "app/(pages)/evuser/page.js",
-  "/(pages)/signup/page": "app/(pages)/signup/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/(pages)/signin/page": "app/(pages)/signin/page.js",
-  "/page": "app/page.js",
-  "/(pages)/dashboard/page": "app/(pages)/dashboard/page.js",
+  "/(pages)/revenue/page": "app/(pages)/revenue/page.js",
   "/(pages)/feedbackReceived/page": "app/(pages)/feedbackReceived/page.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/(pages)/detail/page": "app/(pages)/detail/page.js"
+  "/(pages)/revenue-admin/page": "app/(pages)/revenue-admin/page.js",
+  "/(pages)/swaps/page": "app/(pages)/swaps/page.js",
+  "/(pages)/detail/page": "app/(pages)/detail/page.js",
+  "/(pages)/evuser/page": "app/(pages)/evuser/page.js"
 }
