@@ -1,0 +1,20 @@
+export const data = [
+    { Time: '08:00', Energy: 5, Source: 'Solar' },
+    { Time: '09:00', Energy: 10, Source: 'Solar' },
+    { Time: '10:00', Energy: 15, Source: 'Grid' },
+    { Time: '11:00', Energy: 20, Source: 'Grid' },
+    { Time: '12:00', Energy: 25, Source: 'Solar' },
+    { Time: '13:00', Energy: 18, Source: 'Solar' },
+    { Time: '14:00', Energy: 22, Source: 'Grid' },
+    { Time: '15:00', Energy: 30, Source: 'Grid' },
+    { Time: '16:00', Energy: 12, Source: 'Solar' },
+    { Time: '17:00', Energy: 8, Source: 'Solar' },
+    { Time: '11:00', Energy: 20, Source: 'Grid' },
+    { Time: '12:00', Energy: 25, Source: 'Solar' },
+    { Time: '13:00', Energy: 18, Source: 'Solar' },
+    { Time: '14:00', Energy: 22, Source: 'Grid' },
+    { Time: '15:00', Energy: 30, Source: 'Grid' },
+    { Time: '16:00', Energy: 12, Source: 'Solar' },
+    { Time: '17:00', Energy: 8, Source: 'Solar' },
+  ];
+  

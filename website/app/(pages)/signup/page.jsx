@@ -1,5 +1,4 @@
 "use client";
-import axiosInstance from "@/app/util/axios_instance";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";

@@ -1,5 +1,4 @@
 "use client";
-import axiosInstance from "@/app/util/axios_instance";
 import { Plus } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -71,7 +70,7 @@ const CustomerDetails = () => {
   };
 
   return (
-    <div className="h-full px-10 justify-center items-center">
+    <div className="h-full justify-center items-center">
       <div className="h-16 border mb-6 border-gray-200 rounded-xl bg-white relative">
         <div className="h-full flex items-center justify-between px-4">
           <h1 className=" font-normal text-2xl">Customer Details</h1>
@@ -93,28 +92,10 @@ const CustomerDetails = () => {
           </div>
         </div>
       </div>
-      {isSearchVisible && (
-        <div className=" flex mb-6 items-center">
-          <input
-            type="text"
-            className="border h-10 rounded-md border-gray-300 w-[40%] pl-3 placeholder:font-light text-sm placeholder:text-sm"
-            placeholder="Search by Phone Number"
-            value={searchPhone}
-            onChange={(e) => setSearchPhone(e.target.value)}
-          />
-          <button
-            type="button"
-            className="bg-[#014E53] items-center ml-4 text-white px-4 py-2 rounded-lg hover:scale-95 hover:bg-[#2f6a6c] transition-all duration-300"
-            onClick={handleSearchCustomer} // Trigger search
-          >
-            Search
-          </button>
-        </div>
-      )}
-      <h1 className="text-xl mb-8  text-gray-400">
+      <h1 className="text-md mb-4  text-gray-400">
         Approve Customer Details and add other fields *
       </h1>
-      <div className="w-[81rem] border flex  flex-col items-center text-center shadow-lg p-10 rounded-2xl">
+      <div className="w-[86rem] border flex  flex-col items-center text-center shadow-lg p-10 rounded-2xl">
         <form className="w-full text-start " onSubmit={handleOnSubmit}>
           <div className="flex space-x-4">
             <div className="w-full">
@@ -160,16 +141,6 @@ const CustomerDetails = () => {
               />
             </div>
           </div>
-          {/* <div className="mt-4">
-            <h1 className="font-normal text-sm mb-2">Address</h1>
-            <input
-              type="text"
-              className="border h-8 rounded-md border-gray-300 w-full pl-3 placeholder:font-light text-sm placeholder:text-sm"
-              placeholder="123 Main St"
-              name="address"
-              onChange={(e) => setAddress(e.target.value)}
-            />
-          </div> */}
           <div className="flex space-x-4 mt-4">
             <div className="w-full">
               <h1 className="font-normal text-sm mb-2">Address</h1>
@@ -267,38 +238,12 @@ const CustomerDetails = () => {
 
           <button
             type="submit"
-            className="bg-[#014E53] w-full text-white px-10 py-2 rounded-lg mt-10 mb-2 hover:scale-95 hover:bg-[#2f6a6c] transition-all duration-300"
+            className="bg-[#014E53] w-full text-white px-10 py-2 rounded-lg mt-10 mb-2 hover:scale-100 hover:bg-[#2f6a6c] transition-all duration-300"
           >
             Approve
           </button>
         </form>
       </div>
-
-      {/* Modal for Success Message */}
-      {isModalOpen && (
-        <div className="fixed inset-0  flex justify-center items-center bg-black bg-opacity-50">
-          <div className="bg-white w-[70%] p-5 rounded-lg shadow-lg text-center py-16 px-12">
-            <h2 className="font-bold text-2xl mb-8 ">
-              Registration Successful!
-            </h2>
-            <p className="mb-12">
-              Our executive will reach out to you shortly to discuss the next
-              steps and arrange a visit to the site for further details. In the
-              meantime, we invite you to take a moment to relax and enjoy a cup
-              of tea. We appreciate your patience and look forward to assisting
-              you further!
-            </p>
-            <div className="flex justify-end">
-              <button
-                className="bg-[#014E53] text-white px-4 py-2 rounded-lg "
-                onClick={handleCloseModal}
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

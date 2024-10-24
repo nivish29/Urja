@@ -1,9 +1,7 @@
 "use client";
 import { Delete, Edit, Pencil, Plus, Trash } from "lucide-react";
 import { useState } from "react";
-import AddEmployeeSideBar from "../../components/Sidebars/addEmployeeSidebar";
-import { data } from "../../util/employee_data"; // Make sure your data structure contains the new fields
-import EditEmployeeSideBar from "../../components/Sidebars/editEmployeeSidebar";
+import { data } from "../../utils/employee_data"; // Make sure your data structure contains the new fields
 
 const Employee = () => {
   const [expanded, setExpanded] = useState(false);
