@@ -162,7 +162,7 @@ class _PaymentscreenState extends State<Paymentscreen> {
             Map<String, dynamic> paymentData = {
               'name': parsedData['name'] ?? 'Unknown',
               'phone_number': parsedData['phone_number'] ?? 'N/A',
-              'transaction_id': parsedData['transaction_id'], 
+              'transaction_id': parsedData['transaction_id'],
               'station_name': parsedData['station_name'] ?? 'Unknown Station',
               'battery_id': parsedData['battery_id'] ?? 'Unknown',
               'price_paid': parsedData['price_paid'].toString(),

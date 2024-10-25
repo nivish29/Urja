@@ -12,7 +12,6 @@ const transactionSchema = new mongoose.Schema({
     transaction_id: {
         type: String,
         required: true,
-        unique: true,
     },
     date: {
         type: Date,
