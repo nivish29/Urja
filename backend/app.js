@@ -20,7 +20,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: ['https://urja-nufjtauij-nivish29s-projects.vercel.app', '*'],
+        origin: ['https://urja-self.vercel.app', '*'],
         methods: ['GET', 'POST','PUT'],
     },
 });
@@ -28,7 +28,7 @@ const io = new Server(server, {
 // Middleware setup
 app.use(express.json());
 app.use(cors({
-    origin: 'https://urja-nufjtauij-nivish29s-projects.vercel.app',
+    origin: 'https://urja-self.vercel.app',
     methods: ['GET', 'POST','PUT'],
     allowedHeaders: ['Content-Type'],
     credentials: true,
