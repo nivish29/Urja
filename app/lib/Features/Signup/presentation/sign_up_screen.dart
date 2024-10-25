@@ -1,5 +1,7 @@
+import 'package:app/Features/Signup/controller/sign_up_controller.dart';
 import 'package:app/Features/Signup/presentation/add_detail_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -10,11 +12,8 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
-
+  SignUpController sc = Get.put(SignUpController());
   // Controllers for the input fields
-  final TextEditingController phoneNumberController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +35,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 style: TextStyle(fontSize: 40, fontWeight: FontWeight.w800),
               ),
               const SizedBox(height: 20),
-              _buildTextInputField('Phone Number', phoneNumberController),
+              _buildTextInputField('Phone Number', sc.phoneNumberController),
               const SizedBox(height: 15),
-              _buildTextInputField('Email', emailController),
+              _buildTextInputField('Email', sc.emailController),
               const SizedBox(height: 15),
-              _buildTextInputField('Password', passwordController,
+              _buildTextInputField('Password', sc.passwordController,
                   isPassword: true),
               const SizedBox(height: 30),
               ElevatedButton(

@@ -1,4 +1,6 @@
+import 'package:app/Features/Signup/controller/sign_up_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AddDetailsScreen extends StatefulWidget {
   const AddDetailsScreen({super.key});
@@ -9,13 +11,8 @@ class AddDetailsScreen extends StatefulWidget {
 
 class _AddDetailsScreenState extends State<AddDetailsScreen> {
   final _formKey = GlobalKey<FormState>();
-
+  final sc = Get.find<SignUpController>();
   // Controllers for the input fields
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController lastNameController = TextEditingController();
-  final TextEditingController pincodeController = TextEditingController();
-  final TextEditingController addressController = TextEditingController();
-  final TextEditingController aadharController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,43 +31,46 @@ class _AddDetailsScreenState extends State<AddDetailsScreen> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Form(
-          key: _formKey,
-          child: ListView(
-            children: [
-              const SizedBox(height: 20),
-              _buildTextInputField('First Name', firstNameController),
-              const SizedBox(height: 15),
-              _buildTextInputField('Last Name', lastNameController),
-              const SizedBox(height: 15),
-              _buildTextInputField('Pincode', pincodeController),
-              const SizedBox(height: 15),
-              _buildTextInputField('Home Address', addressController),
-              const SizedBox(height: 15),
-              _buildTextInputField('Aadhar Number', aadharController),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Details Submitted')),
-                    );
-                  }
-                },
-                child: const Text(
-                  'Submit',
-                  style: TextStyle(color: Colors.white),
-                ),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  backgroundColor: Colors.blueAccent, // Adjust color if needed
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
+            key: _formKey,
+            child: Obx(() {
+              return ListView(
+                children: [
+                  const SizedBox(height: 20),
+                  _buildTextInputField('First Name', sc.firstNameController),
+                  const SizedBox(height: 15),
+                  _buildTextInputField('Last Name', sc.lastNameController),
+                  const SizedBox(height: 15),
+                  _buildTextInputField('Pincode', sc.pincodeController),
+                  const SizedBox(height: 15),
+                  _buildTextInputField('Home Address', sc.addressController),
+                  const SizedBox(height: 15),
+                  _buildTextInputField('Aadhar Number', sc.aadharController),
+                  const SizedBox(height: 30),
+                  ElevatedButton(
+                    onPressed: () async {
+                      if (_formKey.currentState!.validate()) {
+                        // Call the signUp method
+                        await sc.signUp();
+                      }
+                    },
+                    child: sc.isLoading.value
+                        ? CircularProgressIndicator(color: Colors.white)
+                        : const Text(
+                            'Submit',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      backgroundColor:
+                          Colors.blueAccent, // Adjust color if needed
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ],
-          ),
-        ),
+                ],
+              );
+            })),
       ),
     );
   }
