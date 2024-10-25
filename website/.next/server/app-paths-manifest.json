@@ -1,9 +1,7 @@
 {
-  "/(pages)/swaps/page": "app/(pages)/swaps/page.js",
-  "/(pages)/requests/page": "app/(pages)/requests/page.js",
+  "/(pages)/dashboard/page": "app/(pages)/dashboard/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/(pages)/detail/page": "app/(pages)/detail/page.js",
-  "/(pages)/feedbackReceived/page": "app/(pages)/feedbackReceived/page.js",
-  "/(pages)/evuser/page": "app/(pages)/evuser/page.js",
-  "/(pages)/revenue-admin/page": "app/(pages)/revenue-admin/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/(pages)/requests/page": "app/(pages)/requests/page.js",
+  "/_not-found/page": "app/_not-found/page.js"
 }

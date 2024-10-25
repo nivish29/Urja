@@ -21,45 +21,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
     ],
-    "/(pages)/signin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(pages)/signin/page.js"
-    ],
-    "/(pages)/revenue/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(pages)/revenue/page.js"
-    ],
-    "/(pages)/requests/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(pages)/requests/page.js"
-    ],
     "/(pages)/detail/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(pages)/detail/page.js"
     ],
-    "/(pages)/evuser/page": [
+    "/(pages)/requests/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(pages)/evuser/page.js"
-    ],
-    "/(pages)/swaps/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(pages)/swaps/page.js"
-    ],
-    "/(pages)/revenue-admin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(pages)/revenue-admin/page.js"
-    ],
-    "/(pages)/feedbackReceived/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(pages)/feedbackReceived/page.js"
+      "static/chunks/app/(pages)/requests/page.js"
     ]
   }
 }

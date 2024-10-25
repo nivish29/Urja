@@ -20,7 +20,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchHistoryData = async () => {
       try {
-        const response = await fetch(`${process.env.VERCEL_NEXT_PUBLIC_BACKEND_URL}/api/energy/671b2e80ece35bb263336978`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/energy/671b2e80ece35bb263336978`);
         const data = await response.json();
         setHistoryData(data);
       } catch (error) {

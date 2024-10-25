@@ -22,7 +22,7 @@ const Employee = () => {
   // Fetch transaction data from the API
   const fetchTransactions = async () => {
     try {
-      const response = await fetch(`${process.env.VERCEL_NEXT_PUBLIC_BACKEND_URL}/api/evUser/transactions`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/evUser/transactions`);
       const data = await response.json();
       setTransactions(data);
       setFilteredTransactions(data); // Initialize filtered data
@@ -34,7 +34,7 @@ const Employee = () => {
   // Fetch transactions based on phone number search
   const fetchFilteredTransactions = async (phone) => {
     try {
-      const response = await fetch(`${process.env.BACKEND_URL}/api/evUser/transactions/search/${phone}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/evUser/transactions/search/${phone}`);
       const data = await response.json();
 
       // Check if the data is an array before updating the state
