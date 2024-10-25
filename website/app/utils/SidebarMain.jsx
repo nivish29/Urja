@@ -30,6 +30,11 @@ export default function SidebarMain({
         {/* If the role is 'Admin' or empty, show admin-specific items */}
         {role === "admin" || role === "" ? (
           <>
+          <SideBarItem
+              text="Home Users"
+              active={activePath === "/requests"}
+              onClick={() => handleItemClick("/requests")}
+            />
             <SideBarItem
               text="Details"
               active={activePath === "/detail"}

@@ -10,6 +10,8 @@ import cors from 'cors';
 import simulateRoute from './src/routes/simulate.route.js'; // Correct import
 import userRoutes from './src/routes/userRoutes.js'; // Import user routes
 import evUserRoutes from './src/routes/evUserRoutes.js'
+import energyRoutes from './src/routes/energyRoutes.js'
+
 // Load environment variables
 dotenv.config();
 connect(); // Connecting to database
@@ -19,7 +21,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
         origin: ['http://localhost:3000', '*'],
-        methods: ['GET', 'POST'],
+        methods: ['GET', 'POST','PUT'],
     },
 });
 
@@ -27,7 +29,7 @@ const io = new Server(server, {
 app.use(express.json());
 app.use(cors({
     origin: 'http://localhost:3000',
-    methods: ['GET', 'POST'],
+    methods: ['GET', 'POST','PUT'],
     allowedHeaders: ['Content-Type'],
     credentials: true,
 }));
@@ -41,6 +43,8 @@ app.use('/api', protectedRoutes);
 app.use('/api', simulateRoute); // Correct route for simulate
 app.use('/api/user', userRoutes);
 app.use('/api/evUser', evUserRoutes)
+app.use('/api', energyRoutes)
+
 // Socket.io setup
 io.on('connection', (socket) => {
     console.log('New client connected:', socket.id);

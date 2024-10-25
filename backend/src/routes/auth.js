@@ -1,10 +1,13 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import EVUser from '../models/EVUser.js';
-import User from '../models/User.js'; // Ensure these model paths are correct
+import EVUser from '../models_main/EVUser.js';
+import User from '../models_main/User.js'; // Ensure these model paths are correct
+import { signin } from '../controllers/auth.controller.js';
 
 const router = express.Router();
+
+router.post('/signin', signin);
 
 // EV User signup
 router.post('/signup/ev', async (req, res) => {

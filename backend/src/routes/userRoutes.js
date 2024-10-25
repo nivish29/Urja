@@ -1,10 +1,15 @@
 // src/routes/userRoutes.js
 import express from 'express';
-import User from '../models/User.js'; // Ensure this is the correct path to your User model
-
+import User from '../models_main/User.js'; // Ensure this is the correct path to your User model
+import { getAllUsers } from '../controllers/user.controller.js';
+import { updateUserStatus } from '../controllers/user.controller.js';
 const router = express.Router();
 
-// Retrieve normal user by phone number
+
+router.get('/getAllUsers', getAllUsers);
+router.put('/:phone', updateUserStatus);
+
+
 router.get('/:phone_number', async (req, res) => {
     const { phone_number } = req.params;
     console.log("Request for user details with phone number", phone_number)

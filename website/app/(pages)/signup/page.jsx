@@ -1,4 +1,5 @@
 "use client";
+import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -26,37 +27,46 @@ const SignUp = () => {
     event.preventDefault();
 
     try {
-      // const response = await axiosInstance.post(
-      //   "/auth/signup", // Adjust the endpoint as necessary
-      //   {
-      //     firstName,
-      //     lastName,
-      //     email,
-      //     password,
-      //     address,
-      //     phoneNumber,
-      //     city,
-      //     state,
-      //     pincode,
-      //   },
-      //   { withCredentials: true }
-      // )
-      // console.log(response)
-      // localStorage.setItem("accessToken", response.data.data.accessToken)
-      setIsModalOpen(true); // Open modal on successful sign-up
-      // Optionally, redirect after a delay
-      setTimeout(() => {
-        // router.push("/dashboard")
-      }, 2000);
+      const response = await axios.post(
+        "http://localhost:9001/api/auth/signup/user",
+        {
+          firstname: firstName,
+          lastname: lastName,
+          email: email,
+          password: password,
+          address: address,
+          phone_number: phoneNumber,
+          city: city,
+          state: state,
+          pincode: pincode,
+        }
+      );
+
+      if (response.status === 201) {
+        console.log("user registerd");
+        setIsModalOpen(true); // Show success modal
+      }
     } catch (err) {
-      console.error(err);
+      console.error("Sign-up failed:", err);
+      alert("Failed to register. Please try again.");
     }
   };
 
   const handleCloseModal = () => {
+    
+    // Reset all input fields
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPassword("");
+    setAddress("");
+    setPhoneNumber("");
+    setCity("");
+    setState("");
+    setPincode("");
     setIsModalOpen(false); // Close the modal
-  };
 
+  };
   return (
     <div className="h-full flex justify-center items-center">
       <div className="w-[50rem] flex flex-col items-center text-center shadow-lg p-10 rounded-2xl">
@@ -86,8 +96,9 @@ const SignUp = () => {
               <input
                 type="text"
                 className="border h-8 rounded-md border-gray-300 w-full pl-3 placeholder:font-light text-sm placeholder:text-sm"
-                placeholder="John"
+                placeholder="Prateek"
                 name="firstName"
+                value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
               />
             </div>
@@ -96,8 +107,10 @@ const SignUp = () => {
               <input
                 type="text"
                 className="border h-8 rounded-md border-gray-300 w-full pl-3 placeholder:font-light text-sm placeholder:text-sm"
-                placeholder="Doe"
+                placeholder="Kumar"
                 name="lastName"
+                value={lastName}
+
                 onChange={(e) => setLastName(e.target.value)}
               />
             </div>
@@ -110,6 +123,8 @@ const SignUp = () => {
                 className="border h-8 rounded-md border-gray-300 w-full pl-3 placeholder:font-light text-sm placeholder:text-sm"
                 placeholder="urja@example.com"
                 name="email"
+                value={email}
+
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -120,20 +135,13 @@ const SignUp = () => {
                 className="border h-8 rounded-md border-gray-300 w-full pl-3 placeholder:font-light text-sm placeholder:text-sm"
                 placeholder="(123) 456-7890"
                 name="phoneNumber"
+                value={phoneNumber}
+
                 onChange={(e) => setPhoneNumber(e.target.value)}
               />
             </div>
           </div>
-          <div className="mt-4">
-            <h1 className="font-normal text-sm mb-2">Address</h1>
-            <input
-              type="text"
-              className="border h-8 rounded-md border-gray-300 w-full pl-3 placeholder:font-light text-sm placeholder:text-sm"
-              placeholder="123 Main St"
-              name="address"
-              onChange={(e) => setAddress(e.target.value)}
-            />
-          </div>
+
           <div className="flex space-x-4 mt-4">
             <div className="w-full">
               <h1 className="font-normal text-sm mb-2">City</h1>
@@ -142,6 +150,8 @@ const SignUp = () => {
                 className="border h-8 rounded-md border-gray-300 w-full pl-3 placeholder:font-light text-sm placeholder:text-sm"
                 placeholder="City"
                 name="city"
+                value={city}
+
                 onChange={(e) => setCity(e.target.value)}
               />
             </div>
@@ -152,23 +162,60 @@ const SignUp = () => {
                 className="border h-8 rounded-md border-gray-300 w-full pl-3 placeholder:font-light text-sm placeholder:text-sm"
                 placeholder="State"
                 name="state"
+                value={state}
+
                 onChange={(e) => setState(e.target.value)}
               />
             </div>
           </div>
+          <div className="flex space-x-4 mt-4">
+            <div className="w-full">
+              <h1 className="font-normal text-sm mb-2">Pincode</h1>
+              <input
+                type="text"
+                className="border h-8 rounded-md border-gray-300  w-full pl-3 placeholder:font-light text-sm placeholder:text-sm"
+                placeholder="Pincode"
+                name="pincode"
+                value={pincode}
+
+                onChange={(e) => setPincode(e.target.value)}
+              />
+            </div>
+            <div className="w-full">
+              <h1 className="font-normal text-sm mb-2">Password</h1>
+              <input
+                type="password"
+                className="border h-8 rounded-md border-gray-300 w-full pl-3 placeholder:font-light text-sm placeholder:text-sm"
+                placeholder="Password"
+                name="password"
+                value={password}
+
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+          </div>
+
           <div className="mt-4">
-            <h1 className="font-normal text-sm mb-2">Pincode</h1>
+            <h1 className="font-normal text-sm mb-2">Address</h1>
             <input
               type="text"
-              className="border h-8 rounded-md border-gray-300  w-full pl-3 placeholder:font-light text-sm placeholder:text-sm"
-              placeholder="Pincode"
-              name="pincode"
-              onChange={(e) => setPincode(e.target.value)}
+              className="border h-8 rounded-md border-gray-300 w-full pl-3 placeholder:font-light text-sm placeholder:text-sm"
+              placeholder="123 Main St"
+              name="address"
+              value={address}
+
+              onChange={(e) => setAddress(e.target.value)}
             />
           </div>
+          <span className="block text-sm text-gray-500 mt-4">
+            Already have an account?{" "}
+            <a href="/signin" className="text-blue-500 hover:underline">
+              Sign In
+            </a>
+          </span>
           <button
             type="submit"
-            className="bg-[#014E53] w-full text-white px-10 py-2 rounded-lg mt-10 mb-2 hover:scale-95 hover:bg-[#2f6a6c] transition-all duration-300"
+            className="bg-[#014E53] w-full text-white px-10 py-2 rounded-lg mt-8 mb-2 hover:scale-95 hover:bg-[#2f6a6c] transition-all duration-300"
           >
             Sign Up
           </button>
@@ -178,16 +225,15 @@ const SignUp = () => {
       {/* Modal for Success Message */}
       {isModalOpen && (
         <div className="fixed inset-0  flex justify-center items-center bg-black bg-opacity-50">
-          <div className="bg-white w-[70%] p-5 rounded-lg shadow-lg text-center py-16 px-12">
+          <div className="bg-white w-[40%] p-5 rounded-lg shadow-lg text-center py-12 px-12">
             <h2 className="font-bold text-2xl mb-8 ">
               Registration Successful!
             </h2>
             <p className="mb-12">
               Our executive will reach out to you shortly to discuss the next
-              steps and arrange a visit to the site for further details. In the
-              meantime, we invite you to take a moment to relax and enjoy a cup
-              of tea. We appreciate your patience and look forward to assisting
-              you further!
+              steps and arrange a visit to the site for further details. We
+              appreciate your patience and look forward to assisting you
+              further!
             </p>
             <div className="flex justify-end">
               <button

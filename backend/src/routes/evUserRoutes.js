@@ -1,9 +1,20 @@
 // src/routes/userRoutes.js
 import express from 'express';
 import { authenticateUser } from '../middleware/auth.js'; // Import the middleware
-import EVUser from '../models/EVUser.js';
+import { createTransaction ,getAllStationsRevenue,getAllTransactions,getStationRevenue,getTotalRevenue,searchTransactionByPhoneNumber} from '../controllers/swaps.controller.js';
+
+import EVUser from '../models_main/EVUser.js';
+import { getAllEVUsers } from '../controllers/user.controller.js';
 
 const router = express.Router();
+router.post('/transactions', createTransaction);
+router.get('/transactions', getAllTransactions);
+router.get('/revenue/total', getTotalRevenue);
+router.get('/revenue/:station_name', getStationRevenue);
+router.get('/revenue/all/stations', getAllStationsRevenue);
+router.get('/users', getAllEVUsers);
+router.get('/transactions/search/:phone_number', searchTransactionByPhoneNumber);
+
 
 // Retrieve normal user by phone number
 router.get('/:phone_number', async (req, res) => { // Add middleware here
