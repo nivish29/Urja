@@ -38,8 +38,8 @@ const Dashboard = () => {
           <h1 className="font-normal text-2xl">Customer Details</h1>
           <div className="flex">
             <div className="items-center text-sm mr-10">
-              <div>Energy Reserved: 100KW</div>
-              <div>Total Energy Produced: 1000KW</div>
+              <div>Power Reserved: 100KW</div>
+              <div>Total Power Produced: 1000KW</div>
             </div>
             <button
               type="button"
@@ -82,7 +82,7 @@ const Dashboard = () => {
                     <td className="px-6 py-1 border-r border-l font-sm text-[#1F1F1F]">
                       {row.time} {/* Ensure 'time' corresponds to your API response */}
                     </td>
-                    <td className="px-6 border-r">{row.energy} kWh</td>
+                    <td className="px-6 border-r">{row.energy} kW</td>
                     <td className="px-6 border-r">{row.source}</td>
                   </tr>
                 ))}

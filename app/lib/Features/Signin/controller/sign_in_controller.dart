@@ -31,7 +31,7 @@ class SignInController extends GetxController {
 
       if (response.statusCode == 200 || response.statusCode == 201) {
         final data = jsonDecode(response.body);
-        // Get.to(() => Homepage());
+        Get.to(() => Homepage());
         Get.snackbar('Success', 'Logged in successfully');
       } else {
         Get.snackbar('Error', 'Failed to sign in');

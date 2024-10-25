@@ -61,7 +61,7 @@ const Requests = () => {
       <div className="h-16 border border-gray-100 rounded-xl bg-white relative">
         <div className="h-full flex items-center justify-between px-4">
           <h1 className="font-normal text-2xl text-black">
-            Battery Swap Details
+            Home User
           </h1>
           <div className="flex items-center w-[40%]">
             <input

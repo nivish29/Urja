@@ -15,10 +15,8 @@ class PaymentController extends GetxController {
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode(paymentData),
       );
-      print(paymentData.toString());
-      print(response.body);
 
-      if (response.statusCode == 200) {
+      if (response.statusCode == 200 || response.statusCode == 201) {
         // Handle successful response
         Get.snackbar('Success', 'Payment processed successfully');
         // Navigate to the next screen if needed

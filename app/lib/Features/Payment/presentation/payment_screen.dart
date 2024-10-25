@@ -168,7 +168,7 @@ class _PaymentscreenState extends State<Paymentscreen> {
               'price_paid': parsedData['price_paid'].toString(),
             };
 
-            await paymentController.processPayment(paymentData);
+            // await paymentController.processPayment(paymentData);
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => BatterySwapScreen()),
