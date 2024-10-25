@@ -4,7 +4,7 @@ import Transaction from '../models_main/swaps.js';
 
 export const createTransaction = async (req, res) => {
     const { name, phone_number, transaction_id, date, station_name, battery_id,price_paid } = req.body;
-
+    console.log(req.body);
     try {
         const newTransaction = new Transaction({
             name,

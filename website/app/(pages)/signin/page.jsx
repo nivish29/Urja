@@ -8,6 +8,7 @@ const SignIn = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (localStorage.getItem("accessToken")) {
@@ -17,6 +18,7 @@ const SignIn = () => {
 
   const handleOnSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true)
 
     try {
       const response = await axios.post(
@@ -26,8 +28,6 @@ const SignIn = () => {
           password,
         }
       );
-
-      // Assuming the token is in response.data.token and the role is in response.data.user.role
       const { token, user } = response.data;
 
       localStorage.setItem("accessToken", token);
@@ -42,6 +42,8 @@ const SignIn = () => {
       }
     } catch (err) {
       console.error("Sign-in failed", err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -98,8 +100,9 @@ const SignIn = () => {
           <button
             type="submit"
             className="bg-[#014E53] w-full text-white px-10 py-2 rounded-lg mt-10 mb-2 hover:scale-95 hover:bg-[#2f6a6c] transition-all duration-300"
+            disabled={isLoading}
           >
-            Sign In
+            {isLoading ? "Signing In..." : "Sign In"}
           </button>
         </form>
       </div>

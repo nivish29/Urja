@@ -4,10 +4,12 @@ import { authenticateUser } from '../middleware/auth.js'; // Import the middlewa
 import { createTransaction ,getAllStationsRevenue,getAllTransactions,getStationRevenue,getTotalRevenue,searchTransactionByPhoneNumber} from '../controllers/swaps.controller.js';
 
 import EVUser from '../models_main/EVUser.js';
-import { getAllEVUsers } from '../controllers/user.controller.js';
-
+import { getAllEVUsers, } from '../controllers/user.controller.js';
+import {signinEVUser} from '../controllers/auth.controller.js'
 const router = express.Router();
+
 router.post('/transactions', createTransaction);
+router.post('/signin', signinEVUser);
 router.get('/transactions', getAllTransactions);
 router.get('/revenue/total', getTotalRevenue);
 router.get('/revenue/:station_name', getStationRevenue);

@@ -23,7 +23,7 @@ class _BatterySwapScreenState extends State<BatterySwapScreen> {
   void initState() {
     super.initState();
 
-    socket = IO.io('http://192.168.1.2:9001', <String, dynamic>{
+    socket = IO.io('https://urja-3wj9.onrender.com', <String, dynamic>{
       'transports': ['websocket'],
       'autoConnect': true,
     });

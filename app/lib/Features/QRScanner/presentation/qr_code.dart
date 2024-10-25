@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:ui';
 import 'package:app/Features/Payment/presentation/payment_screen.dart';
 import 'package:flutter/material.dart';
@@ -39,12 +40,13 @@ class QrCodeScanner extends StatelessWidget {
                 for (final barcode in barcodes) {
                   if (barcode.displayValue != null) {
                     // Assuming we handle just the first valid scanned code
+                    // print(barcode.displayValue.toString());
                     Navigator.pop(context);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => Paymentscreen(
-                          scannedData: barcode.displayValue,
+                          scannedData: barcode.displayValue ?? '',
                         ),
                       ),
                     );
