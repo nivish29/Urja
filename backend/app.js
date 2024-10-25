@@ -20,17 +20,18 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: ['https://urja-self.vercel.app', '*'],
-        methods: ['GET', 'POST','PUT'],
+        origin: ['https://urja-self.vercel.app'],
+        methods: ['GET', 'POST', 'PUT'],
+        credentials: true
     },
 });
 
 // Middleware setup
 app.use(express.json());
 app.use(cors({
-    origin: 'https://urja-self.vercel.app',
-    methods: ['GET', 'POST','PUT'],
-    allowedHeaders: ['Content-Type'],
+    origin: ['https://urja-self.vercel.app'],  // Array of allowed origins
+    methods: ['GET', 'POST', 'PUT', 'OPTIONS'], // Include OPTIONS method
+    allowedHeaders: ['Content-Type', 'Authorization'], // Include common headers
     credentials: true,
 }));
 
