@@ -13,7 +13,7 @@ const EVUsers = () => {
   // Fetch user data from the API
   const fetchUsers = async () => {
     try {
-      const response = await fetch("http://localhost:9001/api/evUser/users");
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/evUser/users`);
       const data = await response.json();
       setUsers(data); // Set the fetched user data
       setFilteredUsers(data); // Initialize filtered users

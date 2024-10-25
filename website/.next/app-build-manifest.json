@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/page": [
+    "/(pages)/dashboard/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/(pages)/dashboard/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -16,40 +16,40 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/(pages)/signin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(pages)/signin/page.js"
-    ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
     ],
-    "/(pages)/dashboard/page": [
+    "/(pages)/signin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(pages)/dashboard/page.js"
+      "static/chunks/app/(pages)/signin/page.js"
     ],
     "/(pages)/revenue/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(pages)/revenue/page.js"
     ],
+    "/(pages)/requests/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(pages)/requests/page.js"
+    ],
     "/(pages)/detail/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(pages)/detail/page.js"
     ],
-    "/(pages)/swaps/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(pages)/swaps/page.js"
-    ],
     "/(pages)/evuser/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(pages)/evuser/page.js"
+    ],
+    "/(pages)/swaps/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(pages)/swaps/page.js"
     ],
     "/(pages)/revenue-admin/page": [
       "static/chunks/webpack.js",
@@ -60,21 +60,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(pages)/feedbackReceived/page.js"
-    ],
-    "/(pages)/signup/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(pages)/signup/page.js"
-    ],
-    "/(pages)/requests/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(pages)/requests/page.js"
-    ],
-    "/(pages)/simulation/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(pages)/simulation/page.js"
     ]
   }
 }

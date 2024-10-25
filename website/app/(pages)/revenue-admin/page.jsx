@@ -12,13 +12,13 @@ const RevenueAdmin = () => {
       try {
         // Fetch revenue and user visit count for each station
         const stationsResponse = await axios.get(
-          "http://localhost:9001/api/evUser/revenue/all/stations"
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/evUser/revenue/all/stations`
         );
         setStations(stationsResponse.data);
 
         // Fetch the total revenue
         const totalResponse = await axios.get(
-          "http://localhost:9001/api/evUser/revenue/total"
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/evUser/revenue/total`
         );
         setTotalRevenue(totalResponse.data.totalRevenue);
       } catch (error) {

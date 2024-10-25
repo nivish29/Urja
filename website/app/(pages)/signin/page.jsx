@@ -20,7 +20,7 @@ const SignIn = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:9001/api/auth/signin",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/signin`,
         {
           email,
           password,

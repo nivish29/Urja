@@ -11,7 +11,7 @@ const Simulation = () => {
     setLoading(true)
     try {
       const response = await axios.post(
-        "http://localhost:9001/api/send-message",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/send-message`,
         {
           index: index,
           removeIdx:removeIndex,

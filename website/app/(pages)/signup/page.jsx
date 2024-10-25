@@ -28,7 +28,7 @@ const SignUp = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:9001/api/auth/signup/user",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/signup/user`,
         {
           firstname: firstName,
           lastname: lastName,

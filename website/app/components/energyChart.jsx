@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend } from 'chart.js';
+require('dotenv').config()
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend);
 
@@ -11,7 +12,7 @@ const EnergyChart = () => {
   useEffect(() => {
     const fetchEnergyData = async () => {
       try {
-        const response = await fetch('http://localhost:9001/api/energy/671b2e80ece35bb263336978');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/energy/671b2e80ece35bb263336978`);
         const data = await response.json();
         setEnergyData(data);
       } catch (error) {

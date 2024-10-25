@@ -36,7 +36,7 @@ const CustomerDetails = () => {
       const customerId = searchPhone; 
       console.log({ card, machineSetup, machineUUID });
       const response = await axios.put(
-        `http://localhost:9001/api/user/${customerId}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/${customerId}`,
         {
           card_details:card,
           aadhar:aadhar,
@@ -80,7 +80,7 @@ const CustomerDetails = () => {
   const handleSearchCustomer = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:9001/api/user/${searchPhone}`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/${searchPhone}`
       );
       console.log(response);
       const customerData = response.data;
