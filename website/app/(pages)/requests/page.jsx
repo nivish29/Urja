@@ -24,7 +24,7 @@ const Requests = () => {
     const fetchData = async () => {
       setLoading(true); // Set loading to true before fetching
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/getAllUsers`);
+        const response = await fetch(`${process.env.VERCEL_NEXT_PUBLIC_BACKEND_URL}/api/user/getAllUsers`);
         const result = await response.json();
         const formattedData = result.map((user) => ({
           name: `${user.firstname} ${user.lastname}`, // Combining first and last name

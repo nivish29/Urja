@@ -22,7 +22,7 @@ const Employee = () => {
   // Fetch transaction data from the API
   const fetchTransactions = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/evUser/transactions`);
+      const response = await fetch(`${process.env.VERCEL_NEXT_PUBLIC_BACKEND_URL}/api/evUser/transactions`);
       const data = await response.json();
       setTransactions(data);
       setFilteredTransactions(data); // Initialize filtered data
