@@ -1,3 +1,4 @@
+import 'package:app/Features/Homepage/presentation/homepage.dart';
 import 'package:app/Features/Signin/controller/sign_in_controller.dart';
 import 'package:app/Features/Signup/presentation/sign_up_screen.dart';
 import 'package:flutter/material.dart';
@@ -34,10 +35,11 @@ final _formKey = GlobalKey<FormState>();
               Obx(() => ElevatedButton(
                     onPressed: controller.isLoading.value
                         ? null
-                        : () {
+                        : () async{
                             if (_formKey.currentState!.validate()) {
-                              controller.signIn();
+                              await controller.signIn();
                             }
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Homepage()));
                           },
                     child: controller.isLoading.value
                         ? CircularProgressIndicator(
