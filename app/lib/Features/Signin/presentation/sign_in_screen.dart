@@ -1,20 +1,11 @@
+import 'package:app/Features/Signin/controller/sign_in_controller.dart';
 import 'package:app/Features/Signup/presentation/sign_up_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
-
-  @override
-  State<SignInScreen> createState() => _SignInScreenState();
-}
-
-class _SignInScreenState extends State<SignInScreen> {
-  final _formKey = GlobalKey<FormState>();
-
-  // Controllers for the input fields
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-
+class SignInScreen extends StatelessWidget {
+  final SignInController controller = Get.put(SignInController());
+final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,29 +26,35 @@ class _SignInScreenState extends State<SignInScreen> {
                 style: TextStyle(fontSize: 50, fontWeight: FontWeight.w800),
               ),
               const SizedBox(height: 20),
-              _buildTextInputField('Email', emailController),
+              _buildTextInputField('Email', controller.emailController),
               const SizedBox(height: 15),
-              _buildTextInputField('Password', passwordController,
+              _buildTextInputField('Password', controller.passwordController,
                   isPassword: true),
               const SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    // Proceed with sign-in functionality
-                  }
-                },
-                child: const Text(
-                  'Sign In',
-                  style: TextStyle(color: Colors.white),
-                ),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  backgroundColor: Colors.blueAccent, // Adjust color if needed
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
-              ),
+              Obx(() => ElevatedButton(
+                    onPressed: controller.isLoading.value
+                        ? null
+                        : () {
+                            if (_formKey.currentState!.validate()) {
+                              controller.signIn();
+                            }
+                          },
+                    child: controller.isLoading.value
+                        ? CircularProgressIndicator(
+                            color: Colors.white,
+                          )
+                        : const Text(
+                            'Sign In',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      backgroundColor: Colors.blueAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                  )),
               const SizedBox(height: 10),
               Center(
                 child: TextButton(
@@ -73,14 +70,14 @@ class _SignInScreenState extends State<SignInScreen> {
                         TextSpan(
                           text: "Don't have an account? ",
                           style: TextStyle(
-                            color: Colors.grey.shade400, // Black color
+                            color: Colors.grey.shade400,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                         TextSpan(
                           text: "Sign Up",
                           style: TextStyle(
-                            color: Colors.blue, // Blue color for "Sign Up"
+                            color: Colors.blue,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -96,7 +93,6 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  // TextInputField widget
   Widget _buildTextInputField(
       String labelText, TextEditingController controller,
       {bool isPassword = false}) {

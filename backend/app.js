@@ -18,20 +18,35 @@ connect(); // Connecting to database
 
 const app = express();
 const server = http.createServer(app);
+// const io = new Server(server, {
+//     cors: {
+//         origin: ['https://urja-self.vercel.app'],
+//         methods: ['GET', 'POST', 'PUT'],
+//         credentials: true
+//     },
+// });
+
+// app.use(express.json());
+// app.use(cors({
+//     origin: ['https://urja-self.vercel.app'], 
+//     methods: ['GET', 'POST', 'PUT', 'OPTIONS'], // Include OPTIONS method
+//     allowedHeaders: ['Content-Type', 'Authorization'], // Include common headers
+//     credentials: true,
+// }));
+
 const io = new Server(server, {
     cors: {
-        origin: ['https://urja-self.vercel.app'],
+        origin: ['https://urja-self.vercel.app', 'http://localhost:9001',],
         methods: ['GET', 'POST', 'PUT'],
         credentials: true
     },
 });
 
-// Middleware setup
 app.use(express.json());
 app.use(cors({
-    origin: ['https://urja-self.vercel.app'],  // Array of allowed origins
-    methods: ['GET', 'POST', 'PUT', 'OPTIONS'], // Include OPTIONS method
-    allowedHeaders: ['Content-Type', 'Authorization'], // Include common headers
+    origin: ['https://urja-self.vercel.app', 'http://localhost:9001'], 
+    methods: ['GET', 'POST', 'PUT', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
 }));
 

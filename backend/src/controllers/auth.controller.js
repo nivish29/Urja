@@ -45,4 +45,42 @@ export const signin = async (req, res) => {
     }
 };
 
+export const signinEVUser = async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const user = await EVUser.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ message: 'EVUser not found' });
+        }
+
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
+            return res.status(400).json({ message: 'Invalid credentials' });
+        }
+        const token = jwt.sign(
+            { id: user._id, role: user.role },
+            process.env.JWT_SECRET,
+            { expiresIn: '1h' }
+        );
+
+        res.status(200).json({
+            token,
+            user: {
+                id: user._id,
+                firstname: user.firstname,
+                lastname: user.lastname,
+                email: user.email,
+                phone_number: user.phone_number,
+                address: user.address,
+                pincode: user.pincode,
+                aadhar: user.aadhar,
+                role: user.role
+            }
+        });
+    } catch (error) {
+        console.error('Error signing in EVUser:', error);
+        res.status(500).json({ message: 'Error signing in EVUser' });
+    }
+};
+
 
